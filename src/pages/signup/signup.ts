@@ -18,22 +18,22 @@ import { HomePage } from '../home/home';
 })
 export class SignupPage {
 
-  public skills : string;
-  public email : string;
-  public phone : any;
-  public password : any;
-  public first_name : any;
-  public last_name : any;
-  public city : any;
-  public state : any;
-  public country : any;
-  public isJobSeeker : boolean;
+  public skills: string;
+  public email: string;
+  public phone: any;
+  public password: any;
+  public first_name: any;
+  public last_name: any;
+  public city: any;
+  public state: any;
+  public country: any;
+  public isJobSeeker: boolean;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public usersserviceProvider : UsersserviceProvider, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public usersserviceProvider: UsersserviceProvider,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
-      //
+    //
   }
 
   ionViewDidLoad() {
@@ -41,9 +41,9 @@ export class SignupPage {
   }
 
 
-  doSignup(){
+  doSignup() {
 
-    var   account = {
+    var account = {
       first_name: this.first_name,
       last_name: this.last_name || '',
       skills: this.skills || '',
@@ -53,26 +53,26 @@ export class SignupPage {
       city: this.city || '',
       state: this.state || '',
       country: this.country || '',
-      isJobSeeker : this.country || ''
+      isJobSeeker: this.country || ''
 
     };
-var that = this;
+    var that = this;
 
-var loader = this.loadingCtrl.create({
+    var loader = this.loadingCtrl.create({
       content: "Please wait...",
-      
+
     });
     loader.present();
 
 
-  	this.usersserviceProvider.signupUserService(account).then(authData => {
-  		//successful
-  		loader.dismiss();
-  		that.navCtrl.setRoot(HomePage);
+    this.usersserviceProvider.signupUserService(account).then(authData => {
+      //successful
+      loader.dismiss();
+      that.navCtrl.setRoot(HomePage);
 
-  	}, error => {
-loader.dismiss();
-     // Unable to log in
+    }, error => {
+      loader.dismiss();
+      // Unable to log in
       let toast = this.toastCtrl.create({
         message: error,
         duration: 3000,
@@ -82,9 +82,9 @@ loader.dismiss();
 
       that.password = ""//empty the password field
 
-  	});
+    });
 
-    
+
   }
 
 }

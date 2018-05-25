@@ -18,12 +18,27 @@ export class UsersserviceProvider {
   public data: any;
   public fireAuth: any;
   public userProfile: any;
+  public userTickets: any;
 
   constructor(public http: Http) {
 
- this.fireAuth = firebase.auth();
+     this.fireAuth = firebase.auth();
 
   	 this.userProfile = firebase.database().ref('users');
+
+     this.userTickets = firebase.database().ref('tickets');
+  }
+
+  viewUser(userId: any){
+    var userRef = this.userProfile.child(userId);
+    return userRef.once('value');
+  }
+
+  viewTickets(tickets: any) {
+    var ticketRef = this.userTickets.child(tickets);
+    console.log(ticketRef);
+    return ticketRef.once('value');
+
   }
 
 
@@ -33,8 +48,6 @@ export class UsersserviceProvider {
 
 
   signupUserService(account: {}){
-
-    
         return this.fireAuth.createUserWithEmailAndPassword(account['email'], account['password']).then((newUser) => {
           //sign in the user
           this.fireAuth.signInWithEmailAndPassword(account['email'], account['password']).then((authenticatedUser) => {
@@ -44,7 +57,6 @@ export class UsersserviceProvider {
           );
           });
         });
-
   }
 
 

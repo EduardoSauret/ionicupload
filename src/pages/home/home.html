@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Welcome</ion-title>
+    <ion-title>Welcome {{userFirstName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,4 +15,8 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+  <br>
+  <button ion-button danger (click)="logoutUser()">Sign Out</button>
+  <button ion-button primary (click)="saleTickets()">Sale Tickets</button>
+  <!-- <button ion-button primary (click)="goToTickets()">Find Tickets</button> -->
 </ion-content>

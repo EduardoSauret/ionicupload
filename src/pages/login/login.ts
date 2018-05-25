@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { HomePage } from '../home/home';
+import { UserProfilePage } from '../user-profile/user-profile';
 import { SignupPage } from '../signup/signup';
 import { UsersserviceProvider } from '../../providers/usersservice/usersservice';
 /**

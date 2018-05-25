@@ -2,11 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import * as firebase from 'firebase';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import * as firebase from 'firebase';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
+
 
 
 @Component({
@@ -45,6 +47,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'Profile', component: UserProfilePage },
       { title: 'List', component: ListPage }
     ];
 

@@ -8,6 +8,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { ItemCreatePage } from '../pages/item-create/item-create';
+import { TicketsPage } from '../pages/tickets/tickets';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,12 +20,12 @@ import { UsersserviceProvider } from '../providers/usersservice/usersservice';
 
 // Initialize Firebase
 export const config = {
-  apiKey: "AIzaSyBWq4lgN3VUCW_kpNbBXQ2ColCQxcQ_ew0",
-  authDomain: "ionicimageupload.firebaseapp.com",
-  databaseURL: "https://ionicimageupload.firebaseio.com",
-  projectId: "ionicimageupload",
-  storageBucket: "ionicimageupload.appspot.com",
-  messagingSenderId: "133677727036"
+  apiKey: "AIzaSyC1NjmIX4Pk0NfmMjYMJMECSAGM2oOnaqg",
+  authDomain: "ionicupload-7cf20.firebaseapp.com",
+  databaseURL: "https://ionicupload-7cf20.firebaseio.com",
+  projectId: "ionicupload-7cf20",
+  storageBucket: "",
+  messagingSenderId: "460172550329"
 };
 firebase.initializeApp(config);
 
@@ -33,7 +36,10 @@ firebase.initializeApp(config);
     HomePage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    UserProfilePage,
+    ItemCreatePage,
+    TicketsPage
   ],
   imports: [
     BrowserModule,
@@ -46,13 +52,16 @@ firebase.initializeApp(config);
     HomePage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    UserProfilePage,
+    ItemCreatePage,
+    TicketsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsersserviceProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
